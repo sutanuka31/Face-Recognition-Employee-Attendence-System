@@ -496,44 +496,7 @@ class Employee:
                 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
                 recognizer = cv2.face.LBPHFaceRecognizer_create()
                 train_dataset = recognizer.read('trainer/trainer.yml') 
-                # if path.exists("trainer/trainer.yml"):
-                #     train_dataset = recognizer.read('trainer/trainer.yml')   #load trained model
-                # else:
-                #     train_dataset = False
-
-            #     def face_cropped(img):
-            #         # Coverting the recorded image to grayscale
-            #         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            #         # Detecting the face for region of image to be fed to eye classifier
-            #         faces = face_classifier.detectMultiScale(gray, 1.3, 5)
-            #         # Scaling factor = 1.3
-            #         # Minimum neighbour = 5
-
-            #         for (x, y, w, h) in faces:
-            #             face_cropped=img[y:y + h, x:x + w]
-            #             return face_cropped
-
-            #     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-            #     img_id = 0
-            #     while True:
-            #         ret, my_frame = cap.read()
-            #         if face_cropped(my_frame) is not None:
-            #             img_id += 1
-            #             face=cv2.resize(face_cropped(my_frame),(450,450))
-            #             face=cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
-            #             file_path_name="data/user."+str(id)+"."+str(img_id)+".jpg"
-            #             cv2.imwrite(file_path_name,face)
-            #             cv2.putText(face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
-            #             cv2.imshow("Cropped Face",face) 
-
-            #         if cv2.waitKey(1)==13 or int(img_id)==100:
-            #             break
-            #     cap.release()
-            #     cv2.destroyAllWindows()
-            #     messagebox.showinfo("Result","Generating data set complted !!!!")
-
-            # except Exception as es:
-            #     messagebox.showerror("Error",f"Due to:{str(es)}",parent=self.root)
+               
 
                 id = 2  #two persons
                 names = ['','unknownone','unknown','abc','xyz']  #key in names, start from the second place, leave first empty
@@ -557,63 +520,7 @@ class Employee:
 
                     # Detecting the face for region of image to be fed to eye classifier
                     faces = face_cascade.detectMultiScale(gray, 1.3, 5, minSize=(200, 200))
-                    # if (len(faces) > 0):
-                    #     for (x, y, w, h) in faces:
-                    #         img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                    #         id, confidence = recognizer.predict(gray[y:y + h, x:x + w])
-                    #         # roi_face is face which is input to eye classifier
-                    #         roi_face = gray[y:y + h, x:x + w]
-                    #         # roi_face_clr = img[y:y + h, x:x + w]
-                    #         eyes = eye_cascade.detectMultiScale(roi_face, 1.3, 5, minSize=(50, 50))
-
-                    #         # Examining the length of eyes object for eyes
-                    #         if (len(eyes) >= 2):
-                    #             # Check if program is running for detection
-                    #             if (first_read):
-                    #                 cv2.putText(img,
-                    #                         "Eye detected",
-                    #                         (70, 70),
-                    #                         cv2.FONT_HERSHEY_PLAIN, 3,
-                    #                         (0, 255, 0), 2)
-
-                    #                 count += 1
-                    #             if (confidence < 100):
-                    #                     id = names[id]
-                    #                     confidence = "{0}%".format(round(100 - confidence))
-                    #                     cv2.putText(img, str(confidence), (x + 5, y + h - 5), font, 1, (255, 255, 0), 1)          
-                    #                     if (confidence > "30%"):
-                    #                         cv2.putText(img, 'Already in the dataset', (x + 50, y + w + 20), font, 1, (255, 255, 0), 2)
-                                    
-                    #                     else:
-                    #                         cv2.putText(img, 'New face was detected', (x + 50, y + w + 20), font, 1,
-                    #                                 (255, 255, 0), 1)
-                    #                         print('click ' + str(count) + ' photo',confidence,id)
-                                      
-                    #             first_read = True
-                    # else:
-                    #     cv2.putText(img,
-                    #                 "No face detected", (100, 100),
-                    #                 cv2.FONT_HERSHEY_PLAIN, 3,
-                    #                 (0, 255, 0), 2)
-
-                    # # Controlling the algorithm with keys
-                    # cv2.imshow('img', img)
-                    # # a = cv2.waitKey(1)
-                    # # if (a == ord('q')):
-                    # #     break
-                    # # elif (a == ord('s') and first_read):
-                    # #     # This will start the detection
-                    # #     first_read = False
-                    # # elif count >= 100:  # Take 30 face sample and stop video
-                    # #     break
-
-                    # if cv2.waitKey(1)==13 or int(count)==100:
-                    #     break
-
-
-
-
-
+                  
                     if (len(faces) > 0):
                         for (x, y, w, h) in faces:
                             img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
